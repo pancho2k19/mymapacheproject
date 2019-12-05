@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
- 
- path('', views.index, name = 'index'),
 
+ path('', views.index, name = 'index'),
+ path('Pieza/' , views.PiezaListView.as_view(), name = 'pieza'),
+ path('Pieza/<int:ok:', views.PiezaDetailView.as_view(), name = 'pieza-detail')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
