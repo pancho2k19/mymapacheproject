@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<hl>Local Mapache</hl>
+  <p> Bienvenido a <em>LocalMapache</em> , Django website </p>
+<h2> Dynamic content </h2>
+
+ <p> El mapache tiene los siguientes registros: </p>
+ <ul>
+    <li><strong>Pieza:<strong> {{ num_Pieza}} </li>
+    <li><strong>Usuario:<strong> {{ num_Usuario}} </li>
+    <li><strong>Autor:<strong> {{ num_Autor}} </li>
+    <li><strong>Comuna:<strong> {{ num_Comuna}} </li>
+    <li><strong>Region:<strong> {{ num_Region}} </li>
+    <li><strong>Tipo:<strong> {{ num_Tipo}} </li>
+ </ul>
+ {% endblock %}
