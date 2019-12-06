@@ -1,16 +1,12 @@
-
 {% extends "base_generic.html" %}
 
-{% block content %}
-<hl>Title: {{Pieza.id}}</hl>
+
+{% block content %}	{% block content %}
+  <hl>Title: {{Pieza.nombre}}</hl>	  <hl>Title: {{Pieza}}</hl>
 
 
-<p><strong>Autor:<strong> {{ Pieza.id_autor}} </p>
-<p><strong>Precio:<strong> {{ Pieza.precioo}} </p>
-<p><strong>Descripcion:<strong> {{Pieza.descripcion}} </p>
-<p><strong>Usuario:<strong> {{ Pieza.id_usuario}} </p>
-<p><strong>Tipo:<strong> {{ Pieza.id_tipo}} </p>
-<p><strong>Imagen:<strong> {{ Pieza.imagen}} </p>
 
 
-{% endblock %}
+  <p><strong>Nombre:<strong>   {{ Pieza.nombre}} </p>	  <li><strong>Nombre:<strong>   {{ Pieza.nombre}} </li>
+  <p><strong>Precio:<strong>   {{ Pieza.precio}} </p>	  <li><strong>Precio:<strong>   {{ Pieza.precio}} </li>
+  <p><strong>Stock:<strong>  {{ Pieza.stock}} </p>	  <li><strong>Stock:<strong>  {{ Pieza.stock}} </li>

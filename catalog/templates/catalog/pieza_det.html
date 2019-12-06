@@ -1,0 +1,18 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <h1>Pieza: {{ Pieza }} </h1>
+  <p>{Pieza.nombre}}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+  <h4>"hola"</h4>
+
+  <dl>
+  {{ Pieza.imagen }}
+
+  </dl>
+
+  </div>
+{% endblock %}

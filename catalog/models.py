@@ -23,18 +23,19 @@ class Usuario(models.Model):
         return self.id
 
 class Autor(models.Model):
-    id =  models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único para el autor")
+
     nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
     contacto = models.CharField(max_length=100)
     informacion = models.CharField(max_length=100)
 
 
     def str(self):
-        return self.id
+        return f'{self.nombre}, {self.apellido}'
 
 
 class Tipo(models.Model):
-    id =  models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único para el tipo")
+
     nombre = models.CharField(max_length=50)
 
     def str(self):
@@ -42,7 +43,7 @@ class Tipo(models.Model):
 
 
 class Comuna(models.Model):
-    id =  models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único para la comuna")
+
     nombre = models.CharField(max_length=50)
     region = models.ForeignKey('Region', on_delete=models.SET_NULL, null=True)
 
@@ -50,7 +51,7 @@ class Comuna(models.Model):
         return self.nombre
 
 class Region(models.Model):
-    id =  models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único para la region")
+
     nombre = models.CharField(max_length=50)
 
     def str(self):
@@ -58,14 +59,17 @@ class Region(models.Model):
 
 class Pieza(models.Model):
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único para la pieza")
     nombre = models.CharField(max_length=50)
-    stock = precio = models.IntegerField(  )
-    id_autor = models.ForeignKey('Autor', on_delete=models.SET_NULL, null=True)
+    stock = models.IntegerField(  )
+    autor = models.ForeignKey('Autor', on_delete=models.SET_NULL, null=True)
     precio = models.IntegerField(  )
-    imagen = models.ImageField(upload_to = 'images/%Y/%m/%d')
+    imagen = models.ImageField(upload_to = 'images/%Y/%m/%d', null = True)
     descripcion = models.CharField(max_length=100)
-    id_tipo = models.ForeignKey('Tipo', on_delete=models.SET_NULL, null=True)
-    id_usuario = models.ForeignKey('Usuario', on_delete=models.SET_NULL, null=True)
+    tipo = models.ForeignKey('Tipo', on_delete=models.SET_NULL, null=True)
+    usuario = models.ForeignKey('Usuario', on_delete=models.SET_NULL, null=True)
+
     def str(self):
-        return self.id
+        return self.nombre
+
+    def get_detalle(self):
+        return reverse('detalle', args=[str(self.id)])

@@ -1,0 +1,15 @@
+  
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Borrar Pieza</h1>
+
+<p>Estas seguro de que quieres borrar la pieza: {{ Pieza }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" action="" value="Yes, delete." />
+</form>
+
+{% endblock %}

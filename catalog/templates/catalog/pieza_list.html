@@ -7,7 +7,7 @@
   <ul>
     {% for Pieza in pieza_list %}
     <li>
-       <a href="{{Pieza.get_absolute_url}}">{{Pieza.nombre}}</a> ({{Pieza.descripcion}})
+       <a href="{{ Pieza.get_detalle }}">{{Pieza.nombre}}</a> ({{Pieza.descripcion}},  {{Pieza.precio}}  chilliones de pesos  )
     </li>
     {% endfor %}
   </ul>
