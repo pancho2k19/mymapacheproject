@@ -38,14 +38,30 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Galeria</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'listado' %}"> Galeria</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca de</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Registrarse</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'registrar' %}" >Añadir piezar</a>
           </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'registro_usuario' %}" >Registrar</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" >USUARIO: {{user.username}}</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'logout' %}" >CERRAR SESION</a>
+          </li>
+          {% else %}
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'login' %}" >INICIAR SESION</a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -130,6 +146,11 @@
 
   <!-- Para el slider -->
   <script src="{% static 'catalog/vendor/bootstrap/js/bootstrap.js' %}"></script>
+
+  <!-- Para la alerta -->
+  <script src="{% static 'catalog/js/confirmacion.js' %}"></script>
+
+ <!-- Para la apariencie de la alerta -->
 
 
 

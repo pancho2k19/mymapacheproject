@@ -1,0 +1,52 @@
+!DOCTYPE html>
+
+
+{% extends 'catalog/base.html' %}
+{% load static %}
+{% block contenido %}
+
+<header class="masthead bg-primary text-white text-center">
+  <div class="container d-flex align-items-center flex-column">
+
+
+    <!-- Masthead Avatar Image -->
+    <img class="masthead-avatar mb-5" src="{% static 'catalog/img/avatar.jpg' %}" alt="">
+
+    <!-- Masthead Heading -->
+    <h1 class="masthead-heading text-uppercase mb-0">MODIFICAR PIEZA</h1>
+
+    <!-- Icon Divider -->
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Masthead Subheading -->
+    <p class="masthead-subheading font-weight-light mb-0"></p>
+
+  </div>
+</header>
+
+<body>
+
+ <form action="" method="POST" , enctype="multipart/form-data">
+   {% csrf_token %}
+   <table>
+      {{ form.as_table }}
+   </table>
+   <input type="reset" name="" value="limpiar">
+   <input type="submit" name="" value="modificar">
+   <p> {{ mensaje }}</p>
+ </form>
+
+
+
+
+
+
+</body>
+
+{% endblock %}

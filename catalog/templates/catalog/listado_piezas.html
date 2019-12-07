@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+
+{% extends 'catalog/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+
+<header class="masthead bg-primary text-white text-center">
+  <div class="container d-flex align-items-center flex-column">
+
+
+    <!-- Masthead Avatar Image -->
+    <img class="masthead-avatar mb-5" src="{% static 'catalog/img/avatar.jpg' %}" alt="">
+
+    <!-- Masthead Heading -->
+    <h1 class="masthead-heading text-uppercase mb-0">GALERIA DE PIEZAS</h1>
+
+    <!-- Icon Divider -->
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Masthead Subheading -->
+    <p class="masthead-subheading font-weight-light mb-0"></p>
+
+  </div>
+</header>
+
+<body>
+
+ <table>
+   <tr>
+     <th>Nombre</th>
+     <th>Precio</th>
+     <th>Autor</th>
+     <th>Opciones</th>
+   </tr>
+
+   {% for p in piezas %}
+
+   <tr>
+     <td>{{p.nombre}}</td>
+     <td>{{p.precio}}</td>
+     <td>{{p.autor}}</td>
+     <td><a href="{% url 'modificar' p.id %}">Modificar</a>
+      <a href="{% url 'eliminar' p.id %}" >Eliminar</a>
+
+     <td>
+
+   </tr>
+
+   {% endfor %}
+
+
+
+
+ </table>
+
+
+</body>
+
+{% endblock %}

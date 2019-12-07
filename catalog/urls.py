@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import path
+from django.urls import path , include
 from.import views
 from django.conf.urls.static import static
 from django.conf import settings
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 urlpatterns = [
@@ -26,14 +25,16 @@ urlpatterns = [
  path('index/', views.index, name = 'index'),
  path('home/', views.home, name = 'home'),
  path('donar/', views.donar, name = 'donar'),
- path('Piezas/' , views.PiezaListView.as_view(), name = 'pieza'),
- path('Pieza/<int:pk>' , views.PiezaDetailView.as_view() , name = 'detalle')
+ path('listado/', views.listado, name = 'listado'),
+ path('registrar/', views.registrar, name = 'registrar'),
+ path('modificar/<id>/', views.modificar, name = 'modificar'),
+ path('listado/eliminar/<id>/', views.eliminar, name = 'eliminar'),
+ path('mostrar/', views.mostrar, name = 'mostrar'),
+ path('registro_usuario/' , views.registro_usuario , name = 'registro_usuario'),
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-urlpatterns += [
-    path('Pieza/create/', views.PiezaCreate.as_view(), name='pieza_create'),
-    path('Pieza/<int:pk>/update/', views.PiezaUpdate.as_view(), name='pieza_update'),
-    path('Pieza/<int:pk>/delete/', views.PiezaDelete.as_view(), name='pieza_delete'),
-]
+
+
+
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

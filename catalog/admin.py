@@ -4,7 +4,7 @@ from django.contrib import admin
 
 from django.contrib import admin
 
-from . models import Usuario, Autor , Pieza 
+from . models import Usuario, Autor , Pieza
 admin.site.register(Usuario)
 admin.site.register(Autor)
 admin.site.register(Pieza)

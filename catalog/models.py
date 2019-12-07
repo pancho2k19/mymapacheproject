@@ -41,9 +41,10 @@ class Pieza(models.Model):
     stock = models.IntegerField(  )
     autor = models.ForeignKey('Autor', on_delete=models.SET_NULL, null=True)
     precio = models.IntegerField(  )
-    imagen = models.ImageField(upload_to = 'images/%Y/%m/%d', null = True)
+    imagen = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=100)
     usuario = models.ForeignKey('Usuario', on_delete=models.SET_NULL, null=True)
+    imagenprueba = models.ImageField( null = True , blank = True)
 
     def __str__(self):
         return self.nombre
