@@ -1,18 +1,51 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <hl>Listado de piezas</hl>
-  {% if pieza_list %}
 
-  <ul>
-    {% for Pieza in pieza_list %}
-    <li>
-       <a href="{{ Pieza.get_detalle }}">{{Pieza.nombre}}</a> ({{Pieza.descripcion}},  {{Pieza.precio}}  chilliones de pesos  )
-    </li>
+<section class="page-section portfolio" id="portfolio">
+  <div class="container">
+
+    <!-- Portfolio Section Heading -->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"></h2>
+
+    <!-- Icon Divider -->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Portfolio Grid Items -->
+
+
+    <div class="row">
+    {% for p in piezas %}
+
+      <!-- Portfolio Item n -->
+      <div class="col-md-6 col-lg-4">
+
+          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+            <div class="portfolio-item-caption-content text-center text-white">
+              <i class="fas fa-plus fa-3x"></i>
+            </div>
+          </div>
+          {% if p.imagenprueba %}
+          <img class="img-fluid" src="{{ p.imagenprueba.url }}" alt="">
+          {% endif %}
+
+      </div>
+
     {% endfor %}
-  </ul>
 
-  {% else %}
-    <p> no hay piezas en la galeria </p>
-  {% endif %}
+  </div>
+</section>
+
+
+
+
+
+
+  
 {% endblock %}

@@ -58,7 +58,7 @@ ROOT_URLCONF = 'locallibreria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:\%Users\%pancho\%Desktop\%proyecto_semestral_django\%locallibreria\%catalog\%templates'],
+        'DIRS': ['C:\%Users\%Ugalde\%Desktop\%proyecto_semestral_django\%locallibreria\%catalog\%templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

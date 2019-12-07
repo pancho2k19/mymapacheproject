@@ -4,6 +4,7 @@
 
 {% block contenido %}
 
+
 <body id="page-top">
 
   <!-- Navigation -->
@@ -45,7 +46,7 @@
 
           <!-- Portfolio Item n -->
           <div class="col-md-6 col-lg-4">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target= "#hola1">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target= "#data">
               <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                 <div class="portfolio-item-caption-content text-center text-white">
                   <i class="fas fa-plus fa-3x"></i>
@@ -70,9 +71,11 @@
 
     <!-- Portfolio Modal 1 -->
 
-    {% for p in piezas %}
-    <div class="portfolio-modal modal fade" id="hola1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+  {% for p in piezas %}
+  <div class="portfolio-modal modal fade" id="data" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+
       <div class="modal-dialog modal-xl" role="document">
+
         <div class="modal-content">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">
@@ -80,6 +83,7 @@
             </span>
           </button>
           <div class="modal-body text-center">
+
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -95,6 +99,7 @@
                   </div>
                   <!-- Portfolio Modal - Image -->
 
+
                   {% if p.imagenprueba %}
                   <img class="img-fluid rounded mb-5" src="{{ p.imagenprueba.url }}" alt="">
                   {% endif %}
@@ -103,6 +108,10 @@
                   <p class="mb-5">  Precio: ${{p.precio}} </p>
                   <p class="mb-5">  Stock: {{p.stock}} </p>
                   <p class="mb-5">  Usuario: {{p.usuario}}</p>
+                  <p class="mb-5">  contador: {{ p.id}}</p>
+
+
+
                   <button class="btn btn-primary" href="#" data-dismiss="modal">
                     <i class="fas fa-times fa-fw"></i>
                     Cerrar Ventana
@@ -110,11 +119,15 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+
       </div>
+
     </div>
-   {% endfor %}
+
+  {% endfor %}
 
 </body>
 {% endblock %}

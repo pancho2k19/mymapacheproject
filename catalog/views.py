@@ -52,7 +52,7 @@ def listado(request):
 
 @login_required
 def registrar(request):
-	usuario = request.user.username
+	
 	data = {'form':PiezaForm() }
 
 	if request.method == 'POST':

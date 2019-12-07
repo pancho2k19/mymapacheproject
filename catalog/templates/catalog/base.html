@@ -43,13 +43,13 @@
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca de</a>
           </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'registrar' %}" >Añadir piezar</a>
-          </li>
 
           {% if user.is_authenticated %}
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'listado' %}" >Ver tus Piezas</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'registrar' %}" >Añadir piezar</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'logout' %}" >CERRAR SESION</a>
@@ -109,7 +109,7 @@
         <div class="col-lg-4">
           <h4 class="text-uppercase mb-4">Acerca </h4>
           <p class="lead mb-0">Nuestros servicios son gratuitos y financiados por donaciones
-            <a href="donar.html">Haga una donación</a>.</p>
+            <a href="{% url 'donar' %}">Haga una donación</a>.</p>
         </div>
 
       </div>
