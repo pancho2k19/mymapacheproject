@@ -4,10 +4,7 @@ from django.contrib import admin
 
 from django.contrib import admin
 
-from . models import Usuario, Autor , Pieza , Comuna , Region , Tipo
+from . models import Usuario, Autor , Pieza 
 admin.site.register(Usuario)
 admin.site.register(Autor)
 admin.site.register(Pieza)
-admin.site.register(Comuna)
-admin.site.register(Region)
-admin.site.register(Tipo)

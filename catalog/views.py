@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from.models import Autor, Usuario, Comuna , Region , Pieza, Tipo
+from.models import Autor, Usuario,  Pieza
 from django.views import generic
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -28,7 +28,13 @@ def index(request):
 	'num_Region':num_Region ,'num_Tipo':num_Tipo , 'num_visits':num_visits} ,
         )
 
+def home(request):
 
+	return render(request , 'catalog/home.html')
+
+def donar(request):
+
+	return render(request , 'catalog/donar.html')
 
 
 class PiezaListView(generic.ListView):

@@ -1,5 +1,5 @@
-
 """locallibreria URL Configuration
+
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
@@ -23,7 +23,9 @@ from django.urls import reverse_lazy
 
 urlpatterns = [
 
- path('', views.index, name = 'index'),
+ path('index/', views.index, name = 'index'),
+ path('home/', views.home, name = 'home'),
+ path('donar/', views.donar, name = 'donar'),
  path('Piezas/' , views.PiezaListView.as_view(), name = 'pieza'),
  path('Pieza/<int:pk>' , views.PiezaDetailView.as_view() , name = 'detalle')
 
