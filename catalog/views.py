@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from .models import Autor, Usuario,  Pieza
 from django.views import generic
-from .forms import PiezaForm , UserForm
+from .forms import PiezaForm , UserForm , UsuarioForm
 from django.contrib.auth.decorators import login_required , permission_required
 from django.contrib.auth import login , authenticate
 
@@ -45,14 +45,15 @@ def donar(request):
 
 
 def listado(request):
-	piezas = Pieza.objects.all()
+	usuario = Usuario.objects.get( nombre = request.user.username  )
+	piezas = Pieza.objects.filter( usuario = usuario )
 	data = { 'piezas':piezas }
 	return render(request , 'catalog/listado_piezas.html' , data)
 
 @login_required
-@permission_required('catalog.add_pieza')
 def registrar(request):
-	data = {'form':PiezaForm()}
+	usuario = request.user.username
+	data = {'form':PiezaForm() }
 
 	if request.method == 'POST':
 		formulario = PiezaForm(request.POST , files = request.FILES)
@@ -90,8 +91,10 @@ def registro_usuario(request):
 
 	if request.method == 'POST':
 		formulario = UserForm(request.POST )
+
 		if formulario.is_valid():
 			formulario.save()
+
 			username = formulario.cleaned_data['username']
 			password = formulario.cleaned_data['password1']
 			user = authenticate( username = username , password = password)
